@@ -23,7 +23,7 @@ class Scrapy:
         reviews = []
         if(os.path.isfile(full_path)==False and full_path != ''):
             reviews = self.get_data(app_id)
-            with open(self.full_path, 'w', encoding='utf-8') as f:
+            with open(full_path, 'w', encoding='utf-8') as f:
                 json.dump(reviews, f, default=self.default_serializer)
         else:
             print('Data already imported')
