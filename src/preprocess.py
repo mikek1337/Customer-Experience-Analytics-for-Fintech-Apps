@@ -94,7 +94,6 @@ def clean_data(df:pd.DataFrame)-> pd.DataFrame:
    
     missing_cols = find_columns_with_missing_value(df_normalized, 0.75)
     
-    print(df_normalized.head())
     cleaned_data = df_normalized
     if len(missing_cols) > 0:
         cleaned_data = drop_column(df_normalized, missing_cols)
@@ -164,6 +163,6 @@ def drop_column(df:pd.DataFrame, cols:list):
     Returns:
         pd.DataFrame: The modified DataFrame with specified columns dropped, missing values forward-filled, and index reset.
     """
-    df.drop(cols, axis=1)
+    df.drop(cols, axis=1, inplace=True)
         
     return df
